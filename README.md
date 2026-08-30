@@ -2,7 +2,7 @@
 
 VEK / Wekretia is an early-stage 2D RPG prototype built in Godot using GDScript.
 
-The game is set in Wekretia — an original dark fantasy world I've been developing for many years through worldbuilding, stories and roleplay.
+The game is set in Wekretia an original dark fantasy world I've been developing for many years through worldbuilding, stories and roleplay.
 
 ## Current state
 
