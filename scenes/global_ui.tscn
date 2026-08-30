@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cxt1nyflgvwo"]
+
+[ext_resource type="Script" uid="uid://c2dvdv88ffnw1" path="res://scripts/global_ui.gd" id="1_g82l2"]
+[ext_resource type="AudioStream" uid="uid://dtf0ibyxl45tq" path="res://music/SFX/Hover.wav" id="1_y4ggm"]
+[ext_resource type="AudioStream" uid="uid://gu4w82a00mch" path="res://music/SFX/Equip.wav" id="2_g82l2"]
+[ext_resource type="AudioStream" uid="uid://cxsb0dfqex6vk" path="res://music/MusicForScenes/MusicForMainMenu/MusicForMainMenu.mp3" id="4_g82l2"]
+
+[sub_resource type="Animation" id="Animation_8a8k8"]
+resource_name = "Fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7la6k"]
+resource_name = "Fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2nypq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b57to"]
+_data = {
+&"Fade_in": SubResource("Animation_8a8k8"),
+&"Fade_out": SubResource("Animation_7la6k"),
+&"RESET": SubResource("Animation_2nypq")
+}
+
+[node name="GlobalUI" type="CanvasLayer" unique_id=1769922150]
+script = ExtResource("1_g82l2")
+
+[node name="BtnHover" type="AudioStreamPlayer2D" parent="." unique_id=466620597]
+unique_name_in_owner = true
+stream = ExtResource("1_y4ggm")
+bus = &"SFX"
+
+[node name="BtnClick" type="AudioStreamPlayer2D" parent="." unique_id=1684130520]
+unique_name_in_owner = true
+stream = ExtResource("2_g82l2")
+bus = &"SFX"
+
+[node name="FadeRect" type="ColorRect" parent="." unique_id=1487982593]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1056928761]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_b57to")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=887331349]
+stream = ExtResource("4_g82l2")
+bus = &"OST"

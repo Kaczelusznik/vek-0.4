@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://c1har1mappcie"]
+
+[ext_resource type="AudioStream" uid="uid://60i5hwm60yjo" path="res://music/MusicForScenes/MusicForIntro/MusicForIntro.mp3" id="1_gsw8x"]
+[ext_resource type="Script" uid="uid://pmtg036b4m47" path="res://scripts/IntroSceneScripts/intro_scene.gd" id="1_jkhwn"]
+[ext_resource type="Shader" uid="uid://t4ifhb1ha1wg" path="res://assets/shaders/MainMenuFog.gdshader" id="1_xmg1o"]
+[ext_resource type="FontFile" uid="uid://cpb54u2squa40" path="res://assets/fonts/8bitlim.ttf" id="2_0y5sa"]
+[ext_resource type="AudioStream" uid="uid://brd57tl1ra2v2" path="res://music/VAS/VA_intro.mp3" id="5_tij55"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0y5sa"]
+shader = ExtResource("1_xmg1o")
+shader_parameter/fog_color = Color(0.75, 0.75, 0.75, 1)
+shader_parameter/fog_strength = 0.22
+shader_parameter/speed_1 = 0.25
+shader_parameter/speed_2 = 0.18
+
+[node name="IntroScene" type="Control" unique_id=1524230441]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jkhwn")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=207247652]
+stream = ExtResource("1_gsw8x")
+volume_db = -15.0
+autoplay = true
+bus = &"OST"
+
+[node name="Background" type="Node" parent="." unique_id=1745339774]
+
+[node name="BackgroundColor" type="ColorRect" parent="Background" unique_id=152171848]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.08235294, 0.08235294, 0.08235294, 1)
+
+[node name="Fog" type="ColorRect" parent="Background" unique_id=540402693]
+material = SubResource("ShaderMaterial_0y5sa")
+offset_top = 2.0
+offset_right = 1153.0
+offset_bottom = 647.0
+mouse_filter = 2
+
+[node name="Text" type="Control" parent="." unique_id=1007944411]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="StoryText" type="RichTextLabel" parent="Text" unique_id=304064850]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = 3.0
+offset_right = 270.0
+offset_bottom = 3857.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_constants/line_separation = 0
+theme_override_constants/paragraph_separation = 5
+theme_override_fonts/normal_font = ExtResource("2_0y5sa")
+theme_override_font_sizes/normal_font_size = 32
+text = "He had long since learned that honor did not return with prayer, nor with time. Once lost, it festered. It clung to the bones. It followed a man through every road, every graveyard, every blood soaked dawn, until even his own name began to taste like ash.
+
+There had been a day when other mercenaries spoke of him with respect. A hard handed rat with a steady blade, a back unbroken by hunger, fear, or war. Then came the moment that ruined him. A choice too weak, too late, too foul to bury. He had failed where only steel and resolve should have spoken, and ever since, that shame had lived in him like a knife head left inside a wound, poisoning all that remained.
+
+Now he sat in a rotting inn in the village of Oks, a place fit only for the desperate, the hunted, and the almost dead. The roof sagged like a broken spine. The walls sweated damp. Ale stank in the boards. Smoke and piss clung to the air. The sort of place where men vanished quietly and were remembered by no one.
+
+And still, even there, his past had found him.
+
+He owed coin to another rat. Not much by the reckoning of lords, but enough to buy violence. Enough to summon the kind of gutter killers who break teeth first and ask questions never. He had delayed too long, hidden too poorly, and now the debt had ripened. Somewhere outside, boots scraped the mud. Hands tightened on clubs, knives, rusted iron. Paid curs had come to drag their silver from his hide.
+
+The inn was no shelter now. It was a coffin with warm walls. Every stair groaned like a warning. Every corner seemed to breathe. Every shadow promised pain. Stay, and he would be beaten bloody on splintered boards like any other drunken ruin. Run, and he might yet buy himself another cursed mile of life.
+
+But flight had already damned him once.
+
+Somewhere beyond Oks lay another road, black and pitiless, and perhaps upon it the last chance he would ever have to tear the stain from his honor with blood instead of regret. If he wished to live, he had to escape. If he wished to become more than a skulking debtor with a coward’s memory, he had to face the dark with steel in hand and hatred in his teeth.
+
+This night would not free him. It would test whether there was anything left in him worth redeeming.
+
+
+
+
+And he knew he was in for it.
+
+Are you ready?
+
+
+
+
+
+"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="." unique_id=1109645210]
+z_index = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -43.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_0y5sa")
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "Continue"
+
+[node name="VoicePlayerLector" type="AudioStreamPlayer2D" parent="." unique_id=1818336840]
+stream = ExtResource("5_tij55")
+autoplay = true
+max_distance = 4096.0
+bus = &"VAS"
+
+[connection signal="mouse_entered" from="ContinueButton" to="." method="_on_continue_button_mouse_entered"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

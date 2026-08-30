@@ -1,0 +1,59 @@
+[gd_scene format=4 uid="uid://daet0byigkcuw"]
+
+[ext_resource type="Script" uid="uid://b7pkwn72ei2k7" path="res://scripts/InSceneScripts/inn_scene.gd" id="1_43lm1"]
+[ext_resource type="PackedScene" uid="uid://c4rl8u53yst7t" path="res://scenes/player.tscn" id="1_132hl"]
+[ext_resource type="Texture2D" uid="uid://bcdefc6iyeqjp" path="res://assets/Tilemap_assets/grass-dark-1.png" id="1_dqubn"]
+[ext_resource type="PackedScene" uid="uid://dvl7dt3d37s8e" path="res://scenes/pause_menu.tscn" id="3_vomat"]
+[ext_resource type="AudioStream" uid="uid://4fellbcwyhi3" path="res://music/MusicForScenes/MusicForSceneTheInn/the inn scene 2.mp3" id="5_xu75v"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vomat"]
+texture = ExtResource("1_dqubn")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_43lm1"]
+sources/3 = SubResource("TileSetAtlasSource_vomat")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dqubn"]
+
+[sub_resource type="TileSet" id="TileSet_vomat"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_dqubn")
+
+[node name="InnScene" type="Node2D" unique_id=459993782]
+script = ExtResource("1_43lm1")
+
+[node name="FloorTileMap" type="TileMapLayer" parent="." unique_id=1574826136]
+tile_map_data = PackedByteArray("AAD+//3/AwAAAAAAAAD6//3/AwAAAAAAAAD2//3/AwAAAAAAAADy//3/AwAAAAAAAADy//n/AwAAAAAAAAD2//n/AwAAAAAAAAD6//n/AwAAAAAAAAD+//n/AwAAAAAAAAACAPn/AwAAAAAAAAACAP3/AwAAAAAAAAAGAP3/AwAAAAAAAAAGAPn/AwAAAAAAAAAKAPn/AwAAAAAAAAAOAPn/AwAAAAAAAAAOAP3/AwAAAAAAAAAKAP3/AwAAAAAAAAAOAAEAAwAAAAAAAAAOAAUAAwAAAAAAAAAOAAkAAwAAAAAAAAAKAAkAAwAAAAAAAAAKAAUAAwAAAAAAAAAKAAEAAwAAAAAAAAAGAAEAAwAAAAAAAAAGAAUAAwAAAAAAAAAGAAkAAwAAAAAAAAACAAkAAwAAAAAAAAACAAUAAwAAAAAAAAACAAEAAwAAAAAAAAD+/wEAAwAAAAAAAAD6/wEAAwAAAAAAAAD2/wEAAwAAAAAAAADy/wEAAwAAAAAAAADy/wUAAwAAAAAAAAD2/wUAAwAAAAAAAAD6/wUAAwAAAAAAAAD+/wUAAwAAAAAAAAD+/wkAAwAAAAAAAAD6/wkAAwAAAAAAAAD2/wkAAwAAAAAAAADy/wkAAwAAAAAAAADu//n/AwAAAAAAAADu//3/AwAAAAAAAADu/wEAAwAAAAAAAADu/wUAAwAAAAAAAADu/wkAAwAAAAAAAAA=")
+tile_set = SubResource("TileSet_43lm1")
+
+[node name="WallTileMap" type="TileMapLayer" parent="." unique_id=534156228]
+tile_map_data = PackedByteArray("AADz/wYAAgAAAAIAAAD1/wYAAgAAAAIAAAD3/wYAAgAAAAIAAAD5/wYAAgAAAAIAAAD7/wYAAgAAAAEAAAD9/wYAAgAAAAIAAAD//wYAAgAAAAIAAAABAAYAAgAAAAIAAAADAAYAAgAAAAIAAAAFAAYAAgAAAAIAAAAHAAYAAgAAAAIAAAAJAAYAAgAAAAIAAAALAAYAAgAAAAIAAAANAAYAAgAAAAIAAAAPAAYAAgAAAAIAAAAPAAQAAgAAAAIAAAAPAAIAAgAAAAIAAAANAAIAAgAAAAIAAAALAAIAAgAAAAIAAAAJAAIAAgAAAAIAAAAHAAIAAgAAAAIAAAAFAAIAAgAAAAIAAAAFAPz/AgAAAAIAAAAHAPz/AgAAAAIAAAAJAPz/AgAAAAIAAAALAPz/AgAAAAIAAAANAPz/AgAAAAIAAAAPAPz/AgAAAAIAAAAPAP7/AgAAAAIAAAAPAAAAAgAAAAIAAAAPAPr/AgAAAAIAAAAPAPj/AgAAAAIAAAAPAPb/AgAAAAIAAAANAPb/AgAAAAIAAAALAPb/AgAAAAIAAAAJAPb/AgAAAAIAAAAHAPb/AgAAAAIAAAAFAPb/AgAAAAIAAAADAPb/AgAAAAEAAAABAPb/AgAAAAIAAAD///b/AgAAAAIAAAD9//b/AgAAAAEAAAD7//b/AgAAAAIAAAD5//b/AgAAAAIAAAD3//b/AgAAAAEAAAD1//b/AgAAAAIAAADz//b/AgAAAAIAAADx//b/AgAAAAIAAADx//j/AgAAAAIAAADx//r/AgAAAAIAAADx//z/AgAAAAIAAADx//7/AgAAAAIAAADx/wAAAgAAAAIAAADx/wIAAgAAAAIAAADx/wQAAgAAAAIAAADx/wYAAgAAAAIAAAACAPj/AgACAAIAAAAAAPj/AgACAAIAAAD+//j/AgACAAIAAAD8//j/AgACAAIAAAD3//z/AgACAAEAAADz/wIAAgACAAEAAAA=")
+tile_set = SubResource("TileSet_vomat")
+
+[node name="Objects" type="Node2D" parent="." unique_id=1547362985]
+
+[node name="Player" parent="." unique_id=1933483026 instance=ExtResource("1_132hl")]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=918013869]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=824290966]
+
+[node name="PauseMenu" parent="." unique_id=402272320 instance=ExtResource("3_vomat")]
+process_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -228.0
+offset_top = -131.0
+offset_right = -228.0
+offset_bottom = -131.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1074397507]
+process_mode = 3
+stream = ExtResource("5_xu75v")
+autoplay = true
+bus = &"OST"

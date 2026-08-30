@@ -1,0 +1,68 @@
+﻿# Godot
+.godot/
+.import/
+.mono/
+
+# Temporary / backup files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*~
+
+# Krita / graphics editor backups
+*.kra~
+*.png~
+*.jpg~
+*.jpeg~
+*.webp~
+*.svg~
+.*.kra-autosave
+*.kra-autosave
+
+# IDE / editors
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+.directory
+.Trash-*
+
+# Logs
+*.log
+
+# Builds / exports
+build/
+builds/
+dist/
+exports/
+
+*.exe
+*.pck
+*.x86
+*.x86_64
+*.dmg
+*.apk
+*.aab
+*.wasm
+
+# Environment / secrets
+.env
+.env.*
+!.env.example

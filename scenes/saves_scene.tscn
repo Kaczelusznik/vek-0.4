@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://c3amqeloh7p5p"]
+
+[ext_resource type="FontFile" uid="uid://cpb54u2squa40" path="res://assets/fonts/8bitlim.ttf" id="1_8djxi"]
+[ext_resource type="Script" uid="uid://dc817ikg8onlu" path="res://scripts/MainMenuScripts/saves_scene.gd" id="1_ndw1c"]
+
+[node name="SavesScene" type="Control" unique_id=401715559]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ndw1c")
+
+[node name="Background" type="ColorRect" parent="." unique_id=678416852]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=109940305]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBox" type="VBoxContainer" parent="Panel" unique_id=2046630825]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -531.0
+offset_top = -258.0
+offset_right = -95.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="Panel/MenuBox" unique_id=1486630422]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_8djxi")
+theme_override_font_sizes/font_size = 48
+text = "LOAD GAME"
+
+[node name="Separator 20px" type="Control" parent="Panel/MenuBox" unique_id=1080842751]
+custom_minimum_size = Vector2(0, -10)
+layout_mode = 2
+
+[node name="Slot1" type="Button" parent="Panel/MenuBox" unique_id=2121156398]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.22745098, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("1_8djxi")
+theme_override_font_sizes/font_size = 28
+text = "  SAVE SLOT 1
+"
+flat = true
+alignment = 0
+
+[node name="Slot2" type="Button" parent="Panel/MenuBox" unique_id=1394656897]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.22745098, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("1_8djxi")
+theme_override_font_sizes/font_size = 28
+text = "  SAVE SLOT 2"
+flat = true
+alignment = 0
+
+[node name="Slot3" type="Button" parent="Panel/MenuBox" unique_id=1062185166]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.22745098, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("1_8djxi")
+theme_override_font_sizes/font_size = 28
+text = "  SAVE SLOT 3
+"
+flat = true
+alignment = 0
+
+[node name="Separator 60px" type="Control" parent="Panel/MenuBox" unique_id=312705255]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Panel/MenuBox" unique_id=1828939057]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.22745098, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("1_8djxi")
+theme_override_font_sizes/font_size = 28
+text = "BACK
+"
+flat = true
+alignment = 0
+
+[connection signal="pressed" from="Panel/MenuBox/Slot1" to="." method="_on_slot_1_pressed"]
+[connection signal="pressed" from="Panel/MenuBox/Slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="Panel/MenuBox/Slot3" to="." method="_on_slot_3_pressed"]
+[connection signal="pressed" from="Panel/MenuBox/Back" to="." method="_on_back_pressed"]

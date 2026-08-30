@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://ca206f77npqps"]
+
+[ext_resource type="FontFile" uid="uid://cpb54u2squa40" path="res://assets/fonts/8bitlim.ttf" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://cheqixpfpjd17" path="res://scripts/settings.gd" id="1_r6d6q"]
+
+[node name="Settings" type="Control" unique_id=274317710]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r6d6q")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1023731118]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=179929632]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBox" type="VBoxContainer" parent="Panel" unique_id=557428899]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -531.0
+offset_top = -258.0
+offset_right = -95.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="Panel/MenuBox" unique_id=1114052784]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_5p8wc")
+theme_override_font_sizes/font_size = 48
+text = "SETTINGS"
+
+[node name="Separator 20px" type="Control" parent="Panel/MenuBox" unique_id=994022440]
+custom_minimum_size = Vector2(0, -10)
+layout_mode = 2
+
+[node name="OstVolume" type="Label" parent="Panel/MenuBox" unique_id=615147515]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.22745098, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("1_5p8wc")
+theme_override_font_sizes/font_size = 28
+text = "  MUSIC VOLUME"
+
+[node name="OstSlider" type="HSlider" parent="Panel/MenuBox" unique_id=1981963825]
+layout_mode = 2
+value = 60.0
+
+[node name="SfxVolume" type="Label" parent="Panel/MenuBox" unique_id=1800609207]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.22745098, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("1_5p8wc")
+theme_override_font_sizes/font_size = 28
+text = "  SOUND EFFECTS VOLUME"
+
+[node name="SfxSlider" type="HSlider" parent="Panel/MenuBox" unique_id=1527436770]
+layout_mode = 2
+value = 60.0
+
+[node name="FullscreenToggle" type="CheckBox" parent="Panel/MenuBox" unique_id=1740935648]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.22745098, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("1_5p8wc")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/checkbox_checked_color = Color(1, 1, 1, 1)
+text = "  FULLSCREEN
+"
+
+[node name="Back" type="Button" parent="Panel/MenuBox" unique_id=999827955]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.22745098, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("1_5p8wc")
+theme_override_font_sizes/font_size = 28
+text = "BACK
+"
+flat = true
+alignment = 0
+
+[connection signal="value_changed" from="Panel/MenuBox/OstSlider" to="." method="_on_ost_slider_value_changed"]
+[connection signal="value_changed" from="Panel/MenuBox/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="Panel/MenuBox/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="pressed" from="Panel/MenuBox/Back" to="." method="_on_back_pressed"]

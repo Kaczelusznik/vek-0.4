@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://48iok3a44lgq"]
+
+[ext_resource type="Script" uid="uid://bv5c74tbqgtki" path="res://scripts/MainMenuScripts/main_menu.gd" id="1_826wr"]
+[ext_resource type="FontFile" uid="uid://cpb54u2squa40" path="res://assets/fonts/8bitlim.ttf" id="1_yqorp"]
+[ext_resource type="Texture2D" uid="uid://c34elvcabhqaq" path="res://assets/images/MainMenuImageRight.png" id="2_0ykhv"]
+[ext_resource type="Shader" uid="uid://t4ifhb1ha1wg" path="res://assets/shaders/MainMenuFog.gdshader" id="3_2wh52"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_2wh52"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wh52"]
+shader = ExtResource("3_2wh52")
+shader_parameter/fog_color = Color(0.75, 0.75, 0.75, 1)
+shader_parameter/fog_strength = 0.22
+shader_parameter/speed_1 = 0.25
+shader_parameter/speed_2 = 0.18
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ow34m"]
+shader = ExtResource("3_2wh52")
+shader_parameter/fog_color = Color(0.75, 0.75, 0.75, 1)
+shader_parameter/fog_strength = 0.22
+shader_parameter/speed_1 = 0.25
+shader_parameter/speed_2 = 0.18
+
+[node name="MainMenu" type="Control" unique_id=402272320]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_826wr")
+
+[node name="Background" type="ColorRect" parent="." unique_id=431998849]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+
+[node name="LeftPanel" type="Panel" parent="." unique_id=742589202]
+layout_mode = 0
+offset_right = 481.0
+offset_bottom = 648.0
+
+[node name="MenuBox" type="VBoxContainer" parent="LeftPanel" unique_id=1049419169]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.5
+offset_top = -258.0
+offset_right = 240.5
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="LeftPanel/MenuBox" unique_id=711089626]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_yqorp")
+theme_override_font_sizes/font_size = 48
+text = "VEK THE GAME"
+
+[node name="Separator 20px" type="Control" parent="LeftPanel/MenuBox" unique_id=232187506]
+custom_minimum_size = Vector2(0, -10)
+layout_mode = 2
+
+[node name="NewGame" type="Button" parent="LeftPanel/MenuBox" unique_id=1618704972]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.22745098, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("1_yqorp")
+theme_override_font_sizes/font_size = 28
+text = "  NEW GAME"
+flat = true
+alignment = 0
+
+[node name="LoadGame" type="Button" parent="LeftPanel/MenuBox" unique_id=1555377641]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.22745098, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("1_yqorp")
+theme_override_font_sizes/font_size = 28
+text = "  LOAD GAME"
+flat = true
+alignment = 0
+
+[node name="SettingsButton" type="Button" parent="LeftPanel/MenuBox" unique_id=1208373967]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.22745098, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("1_yqorp")
+theme_override_font_sizes/font_size = 28
+text = "  SETTINGS"
+flat = true
+alignment = 0
+
+[node name="ExitButton" type="Button" parent="LeftPanel/MenuBox" unique_id=544551432]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64705884, 0.22745098, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("1_yqorp")
+theme_override_font_sizes/font_size = 28
+text = "  EXIT "
+flat = true
+alignment = 0
+
+[node name="RightVisual" type="Control" parent="." unique_id=595694886]
+anchors_preset = 0
+offset_left = 481.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="MainArt" type="TextureRect" parent="RightVisual" unique_id=23718744]
+layout_mode = 0
+offset_right = 671.0
+offset_bottom = 647.0
+texture = SubResource("ImageTexture_2wh52")
+
+[node name="MainMenuImageRight" type="Sprite2D" parent="RightVisual" unique_id=1510483054]
+position = Vector2(336, 321)
+scale = Vector2(1.027439, 1.0219437)
+texture = ExtResource("2_0ykhv")
+
+[node name="FogNode" type="Node" parent="." unique_id=1678175481]
+
+[node name="ColorRect" type="ColorRect" parent="FogNode" unique_id=896167900]
+material = SubResource("ShaderMaterial_2wh52")
+offset_left = -3.0
+offset_top = 263.0
+offset_right = 1153.0
+offset_bottom = 777.0
+mouse_filter = 2
+
+[node name="Fog" type="TextureRect" parent="FogNode" unique_id=1627092552]
+material = SubResource("ShaderMaterial_ow34m")
+offset_left = 479.0
+offset_top = 360.0
+offset_right = 1154.0
+offset_bottom = 649.0
+
+[connection signal="pressed" from="LeftPanel/MenuBox/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="LeftPanel/MenuBox/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="LeftPanel/MenuBox/SettingsButton" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="LeftPanel/MenuBox/ExitButton" to="." method="_on_exit_pressed"]
