@@ -6,7 +6,7 @@ The game is set in Wekretia an original dark fantasy world I've been developing 
 
 ## Documentation
 
-[Technical & Game Design Documentation](./docs/VEK_0_4_Project_Documentation_English.pdf)
+[Technical & Game Design Documentation](./docs/VEK_0_4_Project_Documentation.pdf)
 
 ## Current state
 
